@@ -1,9 +1,7 @@
 // src/App.jsx
 import React from 'react';
-import { Container, Typography } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import Sidebar from './components/Sidebar';
+import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import Router from './Router';
 
 const theme = createTheme({
     palette: {
@@ -20,13 +18,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Sidebar />
-            <Container>
-                <Typography variant="h4" gutterBottom>
-                    Welcome to Your Budget App
-                </Typography>
-                {/* 나머지 콘텐츠 */}
-            </Container>
+            <Router /> {/* App에서 Router만 호출하고 Layout은 Router 내부에서 처리합니다 */}
         </ThemeProvider>
     );
 }
