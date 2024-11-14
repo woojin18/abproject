@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React from "react";
 import { Typography } from "@mui/material";
 

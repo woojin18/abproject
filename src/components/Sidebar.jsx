@@ -1,4 +1,3 @@
-// src/components/Sidebar.jsx
 import React from "react";
 import {
   Drawer,
@@ -21,9 +20,9 @@ function Sidebar({ isDrawerOpen, toggleDrawer }) {
       onClose={toggleDrawer}
       sx={{
         "& .MuiDrawer-paper": {
-          width: 240, // 폭을 넓혀 240px로 설정
-          backgroundColor: "#f4f4f4", // 사이드바 배경색 설정
-          color: "#333", // 기본 텍스트 색상
+          width: 240, 
+          backgroundColor: "#f4f4f4", 
+          color: "#333",
         },
       }}
     >
