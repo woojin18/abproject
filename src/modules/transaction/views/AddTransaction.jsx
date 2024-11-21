@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { createTransaction } from "../api/transactionApi";
 
 const AddTransaction = () => {
   const [transaction, setTransaction] = useState({
-    type: 'EXPENSE', // 기본값
-    amount: '',
-    description: '',
-    date: ''
+    type: "EXPENSE", // 기본값
+    amount: "",
+    description: "",
+    date: "",
   });
 
   const handleChange = (e) => {
@@ -16,22 +17,13 @@ const AddTransaction = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/transactions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(transaction)
-      });
-      if (response.ok) {
-        alert('Transaction saved successfully!');
-        setTransaction({ type: 'EXPENSE', amount: '', description: '', date: '' });
-      } else {
-        alert('Failed to save transaction.');
-      }
+      const data = await createTransaction(transaction);
+      alert("Transaction saved successfully!");
+      console.log("Saved Transaction:", data);
+      // 폼 초기화
+      setTransaction({ type: "EXPENSE", amount: "", description: "", date: "" });
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred.');
+      alert("Failed to save transaction.");
     }
   };
 

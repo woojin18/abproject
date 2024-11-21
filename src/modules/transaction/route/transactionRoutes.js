@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Transactions from "../views/Transactions";
+import Transactions from "../views/AddTransaction";
 import Layout from "../../../common/components/Layout";
 
 const transactionRoutes = [
